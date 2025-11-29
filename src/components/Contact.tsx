@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
 import { toast } from 'sonner';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8090';
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -10,19 +12,47 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+//   const handleSubmit = async (e: React.FormEvent) => {
+//     e.preventDefault();
+//     setIsSubmitting(true);
+//
+//     // Backend-ready: This will connect to API later
+//     // Simulate API call
+//     await new Promise((resolve) => setTimeout(resolve, 1500));
+//
+//     toast.success('Message sent successfully! I\'ll get back to you soon.');
+//     setFormData({ name: '', email: '', message: '' });
+//     setIsSubmitting(false);
+//   };
 
-    // Backend-ready: This will connect to API later
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    toast.success('Message sent successfully! I\'ll get back to you soon.');
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/public/contact`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // This sends: { name, email, message }
+      body: JSON.stringify(formData),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to send message');
+    }
+
+    toast.success("Message sent successfully! I'll get back to you soon.");
     setFormData({ name: '', email: '', message: '' });
+  } catch (error) {
+    console.error(error);
+    toast.error('Something went wrong. Please try again.');
+  } finally {
     setIsSubmitting(false);
-  };
-
+  }
+};
+// ------------
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
