@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Portfolio Design System */
+
+@layer base {
+  :root {
+    /* Dark Theme with Premium Gradients */
+    --background: 222 47% 5%;
+    --foreground: 210 40% 92%;
+    
+    /* Card & Surfaces - Glassmorphism */
+    --card: 215 28% 12%;
+    --card-foreground: 210 40% 92%;
+    
+    /* Primary - Sky Blue */
+    --primary: 199 89% 60%;
+    --primary-foreground: 222 47% 5%;
+    
+    /* Secondary - Indigo Purple */
+    --secondary: 239 84% 67%;
+    --secondary-foreground: 210 40% 98%;
+    
+    /* Accent - Electric Cyan */
+    --accent: 187 95% 43%;
+    --accent-foreground: 222 47% 5%;
+    
+    /* Muted Text */
+    --muted: 215 28% 17%;
+    --muted-foreground: 215 20% 65%;
+    
+    /* Borders & Inputs */
+    --border: 215 28% 20%;
+    --input: 215 28% 17%;
+    --ring: 199 89% 60%;
+    
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    
+    /* Popover */
+    --popover: 215 28% 12%;
+    --popover-foreground: 210 40% 92%;
+    
+    /* Radius */
+    --radius: 1rem;
+    
+    /* Custom Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(199, 89%, 60%), hsl(239, 84%, 67%));
+    --gradient-accent: linear-gradient(135deg, hsl(187, 95%, 43%), hsl(199, 89%, 60%));
+    --gradient-glow: radial-gradient(circle at center, hsl(199, 89%, 60% / 0.15), transparent 70%);
+    
+    /* Shadows & Glows */
+    --shadow-glow: 0 0 30px hsl(199, 89%, 60% / 0.3);
+    --shadow-glow-lg: 0 0 50px hsl(199, 89%, 60% / 0.4);
+    --shadow-card: 0 10px 40px hsl(222, 47%, 5% / 0.5);
+    
+    /* Glass Effect */
+    --glass-bg: hsl(215, 28%, 12% / 0.6);
+    --glass-border: hsl(199, 89%, 60% / 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-['Inter',system-ui,sans-serif] antialiased;
+    background: linear-gradient(135deg, hsl(222, 47%, 5%), hsl(222, 47%, 8%));
+    min-height: 100vh;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-['Poppins',system-ui,sans-serif] font-bold;
+  }
+  
+  /* Smooth Scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Selection */
+  ::selection {
+    background: hsl(var(--primary) / 0.3);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer components {
+  /* Glass Card */
+  .glass-card {
+    @apply bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] rounded-3xl shadow-[var(--shadow-card)];
+  }
+  
+  /* Glow Border */
+  .glow-border {
+    @apply border border-primary/20 shadow-[0_0_20px_hsl(var(--primary)/0.2)];
+  }
+  
+  .glow-border:hover {
+    @apply border-primary/50 shadow-[0_0_30px_hsl(var(--primary)/0.4)];
+  }
+  
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+  }
+  
+  /* Button Variants */
+  .btn-primary {
+    @apply px-8 py-3 rounded-xl font-semibold transition-all duration-300;
+    background: var(--gradient-primary);
+    @apply text-background shadow-[var(--shadow-glow)] hover:shadow-[var(--shadow-glow-lg)] hover:scale-105;
+  }
+  
+  .btn-outline {
+    @apply px-8 py-3 rounded-xl font-semibold border-2 border-primary text-primary;
+    @apply hover:bg-primary hover:text-background transition-all duration-300 hover:shadow-[var(--shadow-glow)];
+  }
+  
+  /* Input Styling */
+  .input-glow {
+    @apply w-full px-4 py-3 bg-card/50 backdrop-blur border border-border rounded-xl;
+    @apply text-foreground placeholder:text-muted-foreground;
+    @apply focus:outline-none focus:border-primary/50 focus:shadow-[0_0_20px_hsl(var(--primary)/0.2)];
+    @apply transition-all duration-300;
+  }
+  
+  /* Section Title */
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold mb-4 gradient-text;
+  }
+  
+  /* Tag Chip */
+  .tag-chip {
+    @apply px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-sm font-medium text-primary;
+    @apply hover:bg-primary/20 hover:border-primary/50 transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  /* Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    }
+    to {
+      box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
+    }
+  }
+  
+  /* Delay utilities for staggered animations */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+}
