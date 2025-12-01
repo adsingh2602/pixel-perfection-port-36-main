@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "https://portfolio-backend-9ekb.onrender.com",                       // ✅ important for Vercel
+  base: "/",                       // ✅ important for Vercel
   server: {
     host: "::",
     port: 8080,
