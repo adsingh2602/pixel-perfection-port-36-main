@@ -6,7 +6,7 @@ const Projects = () => {
     {
       id: 1,
       title: 'Ride–Hailing Application Backend',
-      description: 'Built a backend system for a professional networking platform similar to LinkedIn. Implemented features like profile creation, connections, posting updates, and feed management. Designed a robust relational schema in PostgreSQL and used microservices and Docker to structure the application for scalability.',
+      description: 'Developed the backend for a scalable ride-hailing application with features like ride booking, driver assignment, real-time route distance calculation, and fare estimation using OSRM. Built using Spring Boot and PostgreSQL with fully documented REST APIs.',
       tech: ['Java', 'Spring Boot', 'PostgreSQL', 'RESTful API', 'OSRM', 'Swagger UI'],
       github: 'https://github.com/adsingh2602/UberApp',
       // demo: 'https://demo.com',
