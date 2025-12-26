@@ -1,7 +1,23 @@
 import { Github, Linkedin, Mail } from 'lucide-react';
 import heroAvatar from '@/assets/hero-avatar.png';
+import { useTypewriter, Cursor } from 'react-simple-typewriter';
 
 const Hero = () => {
+
+    const [text] = useTypewriter({
+      words: [
+        'Software Developer',
+        'Backend Engineer',
+        'Spring Boot Developer',
+        'Data Analyst',
+        'Business Analytics',
+      ],
+      loop: true,
+        typeSpeed: 70,
+        deleteSpeed: 40,
+        delaySpeed: 1500,
+    });
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-20 px-6 lg:px-8">
       <div className="max-w-7xl mx-auto w-full">
@@ -13,9 +29,13 @@ const Hero = () => {
               <h1 className="text-5xl md:text-7xl font-bold leading-tight">
                 I'm <span className="gradient-text">Amardeep</span>
               </h1>
-              <h2 className="text-3xl md:text-4xl font-bold text-muted-foreground">
-                Software Developer
+              <h2 className="text-3xl md:text-4xl font-bold tracking-wide">
+                <span key={text} className="gradient-text glow-text fade-up">
+                  {text}
+                </span>
+                <Cursor cursorStyle="▍" cursorColor="#3b82f6" />
               </h2>
+
             </div>
 
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
