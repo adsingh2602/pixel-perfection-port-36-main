@@ -30,6 +30,13 @@ const Experience = () => {
       period: '2024',
       description: 'Mastered Spring Boot fundamentals to advanced concepts through project-based learning, including REST APIs, Spring Data JPA, and application deployment.',
     },
+    {
+      type: 'education',
+      title: 'Spring Boot 0 To 100[Spring AI + DevOps]',
+      company: 'Coding shuttle',
+      period: '2026',
+      description: 'Developed backend applications using Spring Boot with exposure to AI integration and DevOps practices, including deployment, monitoring, and scalable system design.',
+    },
   ];
 
   return (
