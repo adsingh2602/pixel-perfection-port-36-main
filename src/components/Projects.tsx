@@ -3,16 +3,25 @@ import { Github, ExternalLink } from 'lucide-react';
 const Projects = () => {
   // Backend-ready structure - will fetch from API later
   const projects = [
+      {
+            id: 1,
+            title: 'NeuroCards – AI Powered Flashcard Engine',
+            description: 'Developed an AI-powered flashcard system that enhances long-term learning using spaced repetition and active recall techniques. Implemented functionality to generate flashcards from PDFs using AI, track user progress, and optimize revision schedules. Built with a full-stack architecture integrating a Spring Boot backend and a modern frontend, with secure APIs and scalable design.',
+            tech: ["Java", "Spring Boot", "React.js", "PostgreSQL", "RESTful APIs", "AI Integration", "PDF Processing"],
+            github: 'https://github.com/adsingh2602/NeuroCards-Backend', // update if different
+            demo: 'https://neurocards-iota.vercel.app/login',
+
+      },
     {
-      id: 1,
+      id: 2,
       title: 'Ride–Hailing Application Backend',
       description: 'Developed the backend for a scalable ride-hailing application with features like ride booking, driver assignment, real-time route distance calculation, and fare estimation using OSRM. Built using Spring Boot and PostgreSQL with fully documented REST APIs.',
       tech: ['Java', 'Spring Boot', 'PostgreSQL', 'RESTful API', 'OSRM', 'Swagger UI'],
       github: 'https://github.com/adsingh2602/UberApp',
-      // demo: 'https://demo.com',
+//       demo: 'https://demo.com',
     },
     {
-      id: 2,
+      id: 3,
       title: 'Social Networking Application Backend',
       description: 'Built a backend system for a professional networking platform similar to LinkedIn. Implemented features like profile creation, connections, posting updates, and feed management. Designed a robust relational schema in PostgreSQL and used microservices and Docker to structure the application for scalability.',
       tech: ["Java", "Spring Boot", "PostgreSQL", "RESTful APIs", "Docker", "Microservices"],
@@ -20,7 +29,7 @@ const Projects = () => {
       // demo: 'https://demo.com',
     },
     {
-      id: 3,
+      id: 4,
       title: 'Bank Loan Data Analysis',
       description: 'Performed data cleaning and preprocessing on a bank loan dataset, handling missing values and preparing the data for analysis. Conducted exploratory data analysis to identify risk patterns based on loan grade, purpose, term, and income levels, helping to understand default risks across customer segments.',
       tech: ["Python", "pandas", "numpy", "matplotlib", "seaborn"],
@@ -28,7 +37,7 @@ const Projects = () => {
       // demo: 'https://demo.com',
     },
     {
-      id: 4,
+      id: 5,
       title: 'E-Commerce Sales Data Analysis',
       description: 'Cleaned and transformed e-commerce sales data, including date parsing and handling missing values. Analysed revenue, profit, discounts, and sales trends by category, region, and time period, uncovering seasonality and customer preferences. Built visualizations and dashboards (Power BI) to present business insights.',
       tech: ["Python", "pandas", "numpy", "matplotlib", "seaborn", "Power BI"],
@@ -84,15 +93,18 @@ const Projects = () => {
                     <Github size={20} />
                     <span className="font-medium">Code</span>
                   </a>
-                  {/* <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-foreground hover:text-primary transition-colors duration-300"
-                  >
-                    <ExternalLink size={20} />
-                    <span className="font-medium">Demo</span>
-                  </a> */}
+                    {/* Demo Links */}
+                  {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-foreground hover:text-primary transition-colors duration-300"
+                      >
+                        <ExternalLink size={20} />
+                        <span className="font-medium">Demo</span>
+                      </a>
+                    )}
                 </div>
               </div>
             </div>
